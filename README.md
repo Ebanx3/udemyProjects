@@ -1,6 +1,6 @@
 ## Replicando proyectos de curso de udemy del profesor Juan Pablo De la torre Valdez
 
-# Simulador para Veterinaria
+## Simulador para Veterinaria
 
 [Visitar](https://simulador-veterinaria.vercel.app)
 
@@ -9,7 +9,7 @@
 - Formulario para ingresar mascotas pacientes
 - Persistencia en LocalStorage
 
-# Planificador de gastos
+## Planificador de gastos
 
 [Visitar](https://planificador-gastos-neon.vercel.app)
 
@@ -18,7 +18,7 @@
 - Manejos de diferentes Hooks como useState y useEffect
 - Persistencia el LocalStorage
 
-# Cotizador de criptomonedas
+## Cotizador de criptomonedas
 
 - Proyecto hecho con React + Vite
 - Utilización de styled components
