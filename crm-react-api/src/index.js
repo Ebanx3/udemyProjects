@@ -7,7 +7,7 @@ import path from "path";
 
 const app = express();
 
-app.listen(config.PORT, () => console.log("Server Up!"));
+app.listen(process.env.PORT || 8080, () => console.log("Server Up!"));
 
 app.use(express.json());
 
