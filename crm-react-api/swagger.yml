@@ -1,0 +1,181 @@
+openapi: 3.0.1
+info:
+  title: API to manage clients
+  description: This API its for a page CRM - Clients
+  version: 1.0.0
+
+servers:
+  - url: https://localhost:8080/
+
+tags:
+  - name: clientes
+
+paths:
+  /clientes/:
+    get:
+      tags:
+        - clientes
+      summary: Return all clientes into an array
+      responses:
+        "200":
+          description: Returns all clients
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/BodyClient"
+
+    post:
+      tags:
+        - clientes
+      summary: Create a new register for a client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BodyClient"
+        required: true
+      responses:
+        "200":
+          description: Create a new register for a client
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                  data:
+                    type: object
+                    allOf:
+                      - $ref: "#/components/schemas/BodyClient"
+
+  /clientes/{id}:
+    get:
+      tags:
+        - clientes
+      summary: Return a client by Id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of client
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Returns a client
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    allOf:
+                      - $ref: "#/components/schemas/BodyClient"
+        "400":
+          description: Does not exists a client with that id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+
+    put:
+      tags:
+        - clientes
+      summary: Allow to update a client
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of client
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BodyClient"
+        required: true
+      responses:
+        "200":
+          description: Client updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                  data:
+                    type: object
+                    allOf:
+                      - $ref: "#/components/schemas/BodyClient"
+        "400":
+          description: Does not exists a client with that id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+
+    delete:
+      tags:
+        - clientes
+      summary: Allow to delete a client
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of client
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Client updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                  data:
+                    type: object
+                    allOf:
+                      - $ref: "#/components/schemas/BodyClient"
+        "400":
+          description: Does not exists a client with that id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+
+components:
+  schemas:
+    BodyClient:
+      type: object
+      properties:
+        nombre:
+          type: string
+        empresa:
+          type: string
+        email:
+          type: string
+        telefono:
+          type: number
+        notas:
+          type: string
