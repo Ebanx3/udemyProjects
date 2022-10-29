@@ -1,7 +1,6 @@
 import express from "express";
-import config from "./config";
 import clientesRouter from "./routes";
-import swaggerUI, { serve } from "swagger-ui-express";
+import swaggerUI from "swagger-ui-express";
 import YAML from "yamljs";
 import path from "path";
 
